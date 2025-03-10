@@ -1,8 +1,9 @@
-const booksElement = document.getElementById('livros');
+const booksElement = document.getElementById("livros");
 
 function showBooksOnScreen(bookList) {
-    bookList.forEach((book) => {
-        booksElement.innerHTML += `
+  booksElement.innerHTML = "";
+  bookList.forEach((book) => {
+    booksElement.innerHTML += `
     <div class="livro">
       <img class="livro__imagens" src="${book.imagem}" alt="${book.alt}" />
       <h2 class="livro__titulo">
@@ -14,6 +15,6 @@ function showBooksOnScreen(bookList) {
         <span class="tag">${book.categoria}</span>
       </div>
     </div>
-        `
-    })
+        `;
+  });
 }
