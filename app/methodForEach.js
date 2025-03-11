@@ -3,9 +3,11 @@ const booksElement = document.getElementById("livros");
 function showBooksOnScreen(bookList) {
   booksElement.innerHTML = "";
   bookList.forEach((book) => {
+//    let availability = verifyBookAvailability(book);
+    let availability = book.quantidade > 0 ? 'livro__imagem' : 'livro__imagem indisponivel';
     booksElement.innerHTML += `
     <div class="livro">
-      <img class="livro__imagens" src="${book.imagem}" alt="${book.alt}" />
+      <img class="${availability}" src="${book.imagem}" alt="${book.alt}" />
       <h2 class="livro__titulo">
         ${book.titulo}
       </h2>
@@ -18,3 +20,11 @@ function showBooksOnScreen(bookList) {
         `;
   });
 }
+
+// function verifyBookAvailability(book) {
+//   if (book.quantidade > 0) {
+//     return `livro__imagens`
+//   } else {
+//     return 'livro__Imagens indisponivel'
+//   }
+// }
