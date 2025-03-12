@@ -1,6 +1,8 @@
 const booksElement = document.getElementById("livros");
+const TotalAvailableBooksPriceElement = document.getElementById("valor_total_livros_disponiveis");
 
 function showBooksOnScreen(bookList) {
+  TotalAvailableBooksPriceElement.innerHTML = "";
   booksElement.innerHTML = "";
   bookList.forEach((book) => {
 //    let availability = verifyBookAvailability(book);
