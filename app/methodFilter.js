@@ -7,7 +7,8 @@ function filterBooks() {
     let filteredBooks = categorie == 'disponivel' ? filterByAvailability() : newFunction(categorie);
     showBooksOnScreen(filteredBooks);
     if (categorie == 'disponivel') {
-        displayTotalAvailableBooksPrice();
+        const totalPrice = calcuteTotalAvailableBooksPrice(filteredBooks);
+        displayTotalAvailableBooksPrice(totalPrice);
     }
 }
 
@@ -19,10 +20,10 @@ function filterByAvailability() {
     return books.filter(book => book.quantidade > 0);
 }
 
-function displayTotalAvailableBooksPrice() {
+function displayTotalAvailableBooksPrice(totalPrice) {
     TotalAvailableBooksPriceElement.innerHTML = `
     <div class="livros__disponiveis">
-      <p>Todos os livros disponíveis por R$ <span id="valor">299,00</span></p>
+      <p>Todos os livros disponíveis por R$ <span id="valor">${totalPrice}</span></p>
     </div>
     `
 }
